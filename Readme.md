@@ -12,3 +12,7 @@ while [ $? -ne 1 ]; do
     git commit -m "$commit_message" -m "Lucky Number: $(date '+%N')"
 done
 ```
+
+The output of this script should look something like:
+
+![](img/Screenshot%20from%202022-07-04%2023-12-25.png)
