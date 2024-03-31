@@ -8,7 +8,7 @@ When you're ready to add a commit to this repository, run this helper script:
 commit_message="<Your commit message>"
 
 git commit -m "$commit_message"
-while [ $? ]; do
+while [ $? -ne 1 ]; do
     git commit -m "$commit_message" -m "Lucky Number: $(date '+%N')"
 done
 ```
