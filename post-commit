@@ -1,0 +1,13 @@
+#!/bin/bash
+
+complexity=3
+commit_hash=$(git log --format="%H" -1)
+hash_prefix=${commit_hash:0:$complexity}
+
+[ -n "$hash_prefix" ] && [ "$hash_prefix" -eq "$hash_prefix" ] 2>/dev/null
+if [ $? -ne 0 ] || [ $(( 10#$hash_prefix )) -ne 0 ];
+then
+    echo "commit_hash=$commit_hash complexity=$complexity hash_prefix=$hash_prefix"
+    echo "Sorry, commit hash prefix needs to be all 0s."
+    git reset --soft HEAD~1
+fi
